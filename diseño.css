@@ -1,0 +1,149 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; }
+html {
+    scroll-behavior: smooth; }
+body {
+    font-family: 'Roboto', sans-serif; }
+h1 {
+    font-size: 3.5em; }
+h2 {
+    font-size: 2.7em; }
+h3 {
+    font-size: 2em; }
+p,
+li,
+button {
+    font-size: 1.25em; }
+button { 
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: 2px solid rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    color: rgb(255, 255, 255);
+    background-color: blueviolet;
+    cursor: pointer; }
+/*para darle estilos y colores al boton*/
+button:hover {
+    background-color: rgb(101, 33, 165); }
+/*para que al pasar por encima cambie de color*/
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 0 15px; }
+.color-acento {
+    color: rgb(71, 22, 206); }
+header {
+    background-color: rgb(50, 2, 50);
+    position: fixed;
+    width: 100%;
+    z-index: 1000; }
+header .logo {
+    padding: 25px 30px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    font-size: 1.6em; }
+header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; }
+header nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+header a {
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(255, 255, 255); }
+header a:hover {
+    color: rgb(255, 0, 0); }
+@media (min-width: 850px) {
+    header .container {
+        flex-direction: row; }
+    header nav {
+        flex-direction: row; } }
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 90vh;
+    background: linear-gradient(rgba(38, 0, 46, 0.5), rgb(0, 0, 0)), url("media/Qzgif.gif") no-repeat center center/cover;
+    color: white; }
+#hero button {
+    font-size: 1.75em; }
+#Explicacion {
+    padding: 10px 15px;
+    text-align: center; }
+#Moral, #final {
+    padding: 100px 15px;
+    text-align: center; }
+#caracteristicas {
+    padding: 200px 15px;
+    text-align: right; }
+#Explicacion .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+#Explicacion .img-container {
+    background: url("media/quizz.jpg") no-repeat center center/cover;
+    width: 100%;
+    height: 300px;
+    max-width: 750px;}
+@media (min-width: 500px) {
+    #Explicacion .img-container {
+        height: 600px; }
+    #Explicacion .texto {
+        max-width: 500px;
+        padding: 200px 15px;
+        text-align: center; }
+    #Explicacion h2 {
+        margin-top: 0; }
+}
+#Moral {
+    background-color: rgb(23, 0, 26);
+    color: white; }
+#Moral .programas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; }
+#Moral .carta {
+    background-color: rgba(50, 50, 50, 1);
+    padding: 12px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 10px rgba(19, 0, 20, 0.5);
+    max-width: 300px; }
+#Moral .carta:nth-child(1) {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("media/moral.jpeg") no-repeat center center/cover; }
+#Moral .carta:nth-child(2) {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("media/Valores.jpeg") no-repeat center center/cover; }
+#Moral .carta:nth-child(3) {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("media/Etica.jpeg") no-repeat center center/cover; }
+#caracteristicas {
+    background: url("media/circulos.jpg") no-repeat calc(100% - 500px) 120px/700px 400px; }
+@media (min-width: 1200px) {
+    #caracteristicas {
+        background-position-x: calc(100% - 800px); } }
+#final {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    height: 80vh; }
+#final h2 {
+    font-size: 9vw; }
+#final button {
+    font-size: 5vw; }
+footer {
+    background-color: rgb(50, 2, 50);
+    padding: 12px;
+    text-align: right;
+    color: rgb(255, 252, 255); }

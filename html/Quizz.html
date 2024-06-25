@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Ética, Valores y Moral</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .question {
+            display: none;
+            margin-bottom: 20px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cuestionario de Ética, Valores y Moral</h1>
+    <div id="questions"></div>
+    <button id="nextButton" onclick="nextQuestion()">Siguiente pregunta</button>
+    <div id="result" class="result"></div>
+
+    <script>
+        const questionsAnswers = [
+            { question: "¿Qué valor es esencial para fomentar la honestidad en los estudiantes?", answer: "Integridad" },
+            { question: "¿Cuál es la base de la moralidad en la educación?", answer: "Respeto" },
+            { question: "¿Qué valor promueve la cooperación entre los estudiantes?", answer: "Solidaridad" },
+            { question: "¿Qué principio ético debe guiar las decisiones de un educador?", answer: "Justicia" },
+            { question: "¿Qué valor es fundamental para el desarrollo de la empatía en los estudiantes?", answer: "Compasión" },
+            { question: "¿Qué es esencial para mantener la confianza en la comunidad educativa?", answer: "Trasparencia" },
+            { question: "¿Qué virtud es clave para la responsabilidad en la educación?", answer: "Diligencia" },
+            { question: "¿Qué valor es crucial para la tolerancia en un entorno educativo diverso?", answer: "Inclusion" },
+            { question: "¿Qué principio ético debe guiar la igualdad de oportunidades en la educación?", answer: "Equidad" },
+            { question: "¿Qué valor fomenta el compromiso con el aprendizaje continuo?", answer: "Perseverancia" }
+        ];
+
+        const selectedQuestions = [];
+        while (selectedQuestions.length < 5) {
+            const randomIndex = Math.floor(Math.random() * questionsAnswers.length);
+            if (!selectedQuestions.includes(questionsAnswers[randomIndex])) {
+                selectedQuestions.push(questionsAnswers[randomIndex]);
+            }
+        }
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionsContainer = document.getElementById('questions');
+        selectedQuestions.forEach((qa, index) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+            questionDiv.id = `question${index}`;
+            questionDiv.innerHTML = `
+                <p>Pregunta ${index + 1}: ${qa.question}</p>
+                <input type="text" id="answer${index}" data-answer="${qa.answer}">
+            `;
+            questionsContainer.appendChild(questionDiv);
+        });
+
+        function showQuestion(index) {
+            if (index > 0) {
+                document.getElementById(`question${index - 1}`).style.display = 'none';
+            }
+            if (index < selectedQuestions.length) {
+                document.getElementById(`question${index}`).style.display = 'block';
+            } else {
+                document.getElementById('nextButton').style.display = 'none';
+                document.getElementById('result').innerHTML = `Tu puntuación final es: ${score} de 5`;
+            }
+        }
+
+        function nextQuestion() {
+            const answerInput = document.getElementById(`answer${currentQuestionIndex}`);
+            const userAnswer = answerInput.value.trim();
+            const correctAnswer = answerInput.getAttribute('data-answer');
+
+            if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                score++;
+            } else {
+                answerInput.style.backgroundColor = '#f8d7da';
+                answerInput.style.borderColor = '#f5c6cb';
+            }
+
+            currentQuestionIndex++;
+            showQuestion(currentQuestionIndex);
+        }
+
+        showQuestion(currentQuestionIndex);
+    </script>
+</body>
+</html>
